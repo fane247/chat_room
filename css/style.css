@@ -1,0 +1,62 @@
+main {
+
+	width: 58%;
+    margin: auto;
+    height: 515px;
+    border-style: solid;
+}
+
+#messages {
+
+	height: 68%;
+    background-color: teal;
+    opacity: 0.8;
+    overflow: scroll;
+}
+
+#message-input-container{
+
+	
+    height: 16%;
+}
+
+form input {
+
+	display: inline;
+	
+}
+
+form {
+	height: 100%;
+}
+
+#text-box {
+	width: 80%;
+	height: 92%;
+	/*border-radius: 14px;*/
+}
+
+
+.message{
+
+	background-color: lightgreen;
+    width: 40%;
+    border-style: solid;
+    border-radius: 11px;
+    margin-bottom: 10px;
+}
+
+.message p 	{
+	margin-bottom: 10px;
+	margin-left: 10px;
+
+}
+
+#send-button {
+
+	border: none;
+    height: 100%;
+    width: 17%;
+}
+
+
