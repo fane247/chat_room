@@ -1,14 +1,35 @@
 
 var messageBox = document.getElementById('messages');
+
 var sendBox = document.getElementById('send-button');
 sendBox.addEventListener("click", sendMessage, false);
 
+var nicknameButton = document.getElementById('nickname-button');
+nicknameButton.addEventListener('click',changeNickname, false);
+	
 var userIdList = [];
 var userId = 0;
 
 createUserId();
 
+function changeNickname() {
 
+	var nickName = document.getElementById('nickname-text').value;
+
+	alertNameChange(nickName);
+	userId = nickName;
+	document.getElementById('nickname-text').value = "";
+}
+
+function alertNameChange (nickName){
+
+	var nameChangeText = document.createTextNode('user: ' + userId + ' has changed thier name to ' + nickName);
+	var p = document.createElement('p')
+	p.appendChild(nameChangeText);
+	p.className += 'nickNameChange';
+	messageBox.appendChild(p);
+
+}
 
 function sendMessage() {
 

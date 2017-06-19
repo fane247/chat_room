@@ -17,7 +17,7 @@ main {
 #message-input-container{
 
 	
-    height: 16%;
+    height: 12%;
 }
 
 form input {
@@ -59,4 +59,10 @@ form {
     width: 17%;
 }
 
+.nickNameChange{
+
+	color: white;
+	text-align: center;
+
+}
 
