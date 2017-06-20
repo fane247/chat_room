@@ -16,9 +16,18 @@ function changeNickname() {
 
 	var nickName = document.getElementById('nickname-text').value;
 
-	alertNameChange(nickName);
-	userId = nickName;
-	document.getElementById('nickname-text').value = "";
+	if (userIdList.includes(nickName)) {
+
+		document.getElementById('nickname-text').value = 'nick name in use';
+
+	} else {
+		
+		alertNameChange(nickName);
+		userId = nickName;
+		document.getElementById('nickname-text').value = "";
+	}
+
+	
 }
 
 function alertNameChange (nickName){
