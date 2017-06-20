@@ -6,8 +6,10 @@ sendBox.addEventListener("click", sendMessage, false);
 
 var nicknameButton = document.getElementById('nickname-button');
 nicknameButton.addEventListener('click',changeNickname, false);
+
+var errorMessage = document.querySelector('.error-message');
 	
-var userIdList = [];
+var userIdList = [0];
 var userId = 0;
 
 createUserId();
@@ -18,16 +20,38 @@ function changeNickname() {
 
 	if (userIdList.includes(nickName)) {
 
-		document.getElementById('nickname-text').value = 'nick name in use';
+		displayErrorMessage();
 
 	} else {
 		
 		alertNameChange(nickName);
+		removeOldUserId();
+
 		userId = nickName;
+		userIdList.push(userId);
 		document.getElementById('nickname-text').value = "";
+		removeErrorMessage();
 	}
 
 	
+}
+
+function displayErrorMessage() {
+	
+	errorMessage.style.display = 'inline';
+
+}
+
+function removeErrorMessage(argument) {
+
+	errorMessage.style.display = 'none';
+}
+
+function removeOldUserId() {
+
+	var index = userIdList.indexOf(userId);
+	userIdList.splice(userId, 1);
+
 }
 
 function alertNameChange (nickName){
@@ -87,11 +111,13 @@ function createMessageContainer(){
 
 function createUserId(){
 
-	id = Math.floor(Math.random() *100000000);
+	do{
+		var id = Math.floor(Math.random() *100000000);
 
-	if (!userIdList.includes(id)) {
-		userIdList.push(id);
-		userId = id;
-	}
+	} while (!userIdList.includes(id)) 
+
+	userIdList.push(id);
+	userId = id;
 
 }
+
